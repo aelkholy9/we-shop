@@ -1,3 +1,5 @@
 class Constants {
-  static const baseUrl = "https://api.escuelajs.co/api/v1";
+  static const offset = 'offset';
+  static const limit = 'limit';
+  static const defaultPaginationLimit = '20';
 }
