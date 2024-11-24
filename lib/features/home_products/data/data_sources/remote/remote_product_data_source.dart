@@ -14,20 +14,26 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   Future<List<Product>> getMainProducts() async {
     final products = await networkClient.get(
         '${ApiConstants.productsPrefix}?${Constants.limit}=${Constants.defaultPaginationLimit}&${Constants.offset}=3');
-    return (products as List).map((e) => ProductModel.fromJson(e)).toList();
+    return (products.data as List)
+        .map((e) => ProductModel.fromJson(e))
+        .toList();
   }
 
   @override
   Future<List<Product>> getMostUsedProducts(int offset) async {
     final products = await networkClient.get(
         '${ApiConstants.productsPrefix}?${Constants.limit}=${Constants.defaultPaginationLimit}&${Constants.offset}=$offset');
-    return (products as List).map((e) => ProductModel.fromJson(e)).toList();
+    return (products.data as List)
+        .map((e) => ProductModel.fromJson(e))
+        .toList();
   }
 
   @override
   Future<List<Product>> getRecommendedProducts() async {
     final products = await networkClient.get(
         '${ApiConstants.productsPrefix}?${Constants.limit}=${Constants.defaultPaginationLimit}&${Constants.offset}=4');
-    return (products as List).map((e) => ProductModel.fromJson(e)).toList();
+    return (products.data as List)
+        .map((e) => ProductModel.fromJson(e))
+        .toList();
   }
 }
