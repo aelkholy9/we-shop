@@ -8,9 +8,9 @@ class GetMostUsedProductsUseCase {
   final ProductsRepository productsRepository;
   GetMostUsedProductsUseCase(this.productsRepository);
 
-  Future<Either<Failure, List<Product>>> execute() async {
+  Future<Either<Failure, List<Product>>> execute([int? offset]) async {
     return executeAndHandleError<List<Product>>(
-      () => productsRepository.getMostUsedProducts(),
+      () => productsRepository.getMostUsedProducts(offset ?? 0),
     );
   }
 }
