@@ -1,16 +1,30 @@
 import 'package:dio/dio.dart';
 import 'package:dio/src/response.dart';
-import 'package:we_shop/core/constants/constants.dart';
+import 'package:we_shop/core/constants/api_constants.dart';
 import 'package:we_shop/core/network/network_client.dart';
+import 'package:we_shop/core/network/response_status.dart';
 
 class DioNetworkClient implements NetworkClient {
   final Dio dio = Dio(
     BaseOptions(
-      baseUrl: Constants.baseUrl,
+      baseUrl: ApiConstants.baseUrl,
       connectTimeout: const Duration(seconds: 60),
     ),
   );
-
+  DioNetworkClient() {
+    dio.interceptors.add(InterceptorsWrapper(
+      onResponse: (Response response, ResponseInterceptorHandler handler) {
+        if (!response.isSuccessful) {
+          throw DioException(
+            requestOptions: response.requestOptions,
+            response: response,
+            type: DioExceptionType.badResponse,
+          );
+        }
+        return handler.next(response); // continue with the response
+      },
+    ));
+  }
   @override
   Future<Response> delete(String url,
       {Map<String, dynamic>? body, Map<String, dynamic>? headers}) async {
