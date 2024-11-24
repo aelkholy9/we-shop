@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:we_shop/core/routing/app_router.dart';
+import 'package:we_shop/core/theme/default_theme.dart';
 import 'package:we_shop/services/service_locator.dart';
 
 void main() {
@@ -22,10 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: getIt<AppRouter>().config(),
       title: 'We Shop',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.light,
     );
   }
 }
