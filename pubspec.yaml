@@ -24,6 +24,9 @@ dependencies:
   get_it: ^8.0.2
   dartz: ^0.10.1
   dio: ^5.7.0
+  cached_network_image: ^3.4.1
+  shimmer: ^3.0.0
+  easy_localization: ^3.0.7
 
 dev_dependencies:
   flutter_test:
@@ -42,6 +45,9 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/translations/
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:
