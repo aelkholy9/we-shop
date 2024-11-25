@@ -1,5 +1,6 @@
 import 'package:we_shop/core/constants/api_constants.dart';
 import 'package:we_shop/core/constants/constants.dart';
+import 'package:we_shop/core/mocks/products_list_mock.dart';
 import 'package:we_shop/core/network/network_client.dart';
 import 'package:we_shop/features/home_products/data/models/ProductModel.dart';
 import 'package:we_shop/features/home_products/domain/entities/Product.dart';
@@ -12,6 +13,9 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
 
   @override
   Future<List<Product>> getMainProducts() async {
+    await Future.delayed(const Duration(seconds: 4));
+    return productsListMock.toList();
+
     final products = await networkClient.get(
         '${ApiConstants.productsPrefix}?${Constants.limit}=${Constants.defaultPaginationLimit}&${Constants.offset}=3');
     return (products.data as List)
@@ -21,6 +25,9 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
 
   @override
   Future<List<Product>> getMostUsedProducts(int offset) async {
+    await Future.delayed(const Duration(seconds: 4));
+
+    return productsListMock.toList();
     final products = await networkClient.get(
         '${ApiConstants.productsPrefix}?${Constants.limit}=${Constants.defaultPaginationLimit}&${Constants.offset}=$offset');
     return (products.data as List)
