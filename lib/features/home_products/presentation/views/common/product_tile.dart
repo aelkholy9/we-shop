@@ -8,13 +8,16 @@ import 'package:we_shop/features/home_products/domain/entities/Product.dart';
 
 class ProductTile extends StatelessWidget {
   final Product product;
-  const ProductTile({super.key, required this.product});
+  final double? width;
+  final double? height;
+  const ProductTile(
+      {super.key, required this.product, this.width, this.height});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 100,
-      height: 150,
+      width: width,
+      height: height,
       child: Column(
         children: [
           Flexible(

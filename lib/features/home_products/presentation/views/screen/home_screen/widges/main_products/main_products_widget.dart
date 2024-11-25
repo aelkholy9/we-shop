@@ -33,6 +33,7 @@ class MainProductsWidget extends StatelessWidget {
                 if (state.products.isEmpty) {
                   return SizedBox(
                     width: double.infinity,
+                    height: 150,
                     child: Center(child: Text(AppLocale.noItems.tr())),
                   );
                 }
@@ -46,11 +47,15 @@ class MainProductsWidget extends StatelessWidget {
                         return const SizedBox(
                             width: DesignTokens.screenHorizontalPadding);
                       }
-                      return ProductTile(product: state.products[index - 1]);
+                      return ProductTile(
+                        product: state.products[index - 1],
+                        width: 100,
+                        height: 150,
+                      );
                     },
                     separatorBuilder: (BuildContext context, int index) =>
                         SizedBox(
-                      width: index == 0 ? 0 : 14,
+                      width: index == 0 ? 0 : DesignTokens.productTileSpacing,
                     ),
                   ),
                 );
