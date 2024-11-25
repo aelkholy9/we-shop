@@ -9,7 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i2;
-import 'package:we_shop/features/home_products/presentation/views/screen/home_screen.dart'
+import 'package:we_shop/features/home_products/presentation/views/screen/home_screen/home_screen.dart'
     as _i1;
 
 /// generated route for
