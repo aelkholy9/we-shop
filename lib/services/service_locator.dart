@@ -7,7 +7,10 @@ import 'package:we_shop/features/home_products/data/data_sources/remote/remote_p
 import 'package:we_shop/features/home_products/data/repos/products_repository_impl.dart';
 import 'package:we_shop/features/home_products/domain/repos/products_repository.dart';
 import 'package:we_shop/features/home_products/domain/use_cases/get_main_products_use_case.dart';
+import 'package:we_shop/features/home_products/domain/use_cases/get_most_used_products_use_case.dart';
+import 'package:we_shop/features/home_products/domain/use_cases/get_recommended_products_use_case.dart';
 import 'package:we_shop/features/home_products/presentation/blocs/main_products_bloc/main_products_bloc.dart';
+import 'package:we_shop/features/home_products/presentation/blocs/most_use_products_bloc/most_use_products_bloc.dart';
 
 final getIt = GetIt.instance;
 
@@ -29,9 +32,18 @@ void setupDependencies() {
   getIt.registerSingleton<GetMainProductsUseCase>(
     GetMainProductsUseCase(getIt<ProductsRepository>()),
   );
+  getIt.registerSingleton<GetMostUsedProductsUseCase>(
+    GetMostUsedProductsUseCase(getIt<ProductsRepository>()),
+  );
+  getIt.registerSingleton<GetRecommendedProductsUseCase>(
+    GetRecommendedProductsUseCase(getIt<ProductsRepository>()),
+  );
 
   //register blocs
   getIt.registerSingleton<MainProductsBloc>(
     MainProductsBloc(getIt<GetMainProductsUseCase>()),
+  );
+  getIt.registerSingleton<MostUseProductsBloc>(
+    MostUseProductsBloc(getIt<GetMostUsedProductsUseCase>()),
   );
 }
