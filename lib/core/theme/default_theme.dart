@@ -8,9 +8,28 @@ class AppTheme {
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.beige,
       titleTextStyle: TextStyle(
-          color: AppColors.lightThemeText, fontWeight: FontWeight.w600),
+        color: AppColors.lightThemeText,
+      ),
       centerTitle: true,
     ),
-    textTheme: const TextTheme(),
+    textTheme: const TextTheme(
+      titleMedium: TextStyle(
+        color: AppColors.lightThemeText,
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+      ),
+      bodyMedium: TextStyle(
+        color: AppColors.lightThemeText,
+        fontSize: 14,
+      ),
+      bodySmall: TextStyle(
+        color: AppColors.lightThemeText,
+        fontSize: 11,
+      ),
+      bodyLarge: TextStyle(
+        color: AppColors.lightThemeText,
+        fontSize: 16,
+      ),
+    ),
   );
 }
