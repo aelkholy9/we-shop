@@ -23,11 +23,14 @@ class SafeNetworkImage extends StatelessWidget {
           height: height,
         ),
       ),
-      errorWidget: (context, url, error) => const Center(
-        child: Icon(
-          Icons.error_outline,
-          color: AppColors.lightGrey,
-          size: 30,
+      errorWidget: (context, url, error) => Container(
+        color: Theme.of(context).colorScheme.secondary,
+        child: const Center(
+          child: Icon(
+            Icons.broken_image_outlined,
+            color: AppColors.lightGrey,
+            size: 30,
+          ),
         ),
       ),
     );
