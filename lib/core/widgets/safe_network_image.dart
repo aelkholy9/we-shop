@@ -16,6 +16,7 @@ class SafeNetworkImage extends StatelessWidget {
       imageUrl: url,
       width: width,
       height: height,
+      fit: BoxFit.cover,
       placeholder: (context, url) => ShimmerWrapper(
         child: SizedBox(
           width: width,
