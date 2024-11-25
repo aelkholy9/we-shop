@@ -4,6 +4,7 @@ import 'package:we_shop/core/constants/colors.dart';
 class AppTheme {
   static final ThemeData light = ThemeData(
     primaryColor: AppColors.white,
+    colorScheme: ColorScheme.fromSwatch(accentColor: AppColors.creamyWhite),
     scaffoldBackgroundColor: AppColors.white,
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.beige,
