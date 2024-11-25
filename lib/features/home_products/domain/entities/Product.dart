@@ -14,7 +14,7 @@ class Product {
 
   int? id;
   String? title;
-  int? price;
+  num? price;
   String? description;
   List<String>? images;
   String? creationAt;
