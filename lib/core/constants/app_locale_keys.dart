@@ -5,4 +5,6 @@ class AppLocale {
   static const products = 'products';
   static const mostUseProducts = 'mostUseProducts';
   static const recommendation = 'recommendation';
+  static const noInternet = 'noInternet';
+  static const connectionRestored = 'connectionRestored';
 }

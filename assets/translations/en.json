@@ -4,5 +4,7 @@
   "noItems": "No items found",
   "products": "Products",
   "mostUseProducts": "Most use products",
-  "recommendation": "Recommendation"
+  "recommendation": "Recommendation",
+  "noInternet": "No Internet",
+  "connectionRestored": "Connection Restored"
 }

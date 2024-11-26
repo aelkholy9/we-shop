@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:we_shop/core/network/dio_network_client.dart';
 import 'package:we_shop/core/network/network_client.dart';
 import 'package:we_shop/core/routing/app_router.dart';
+import 'package:we_shop/core/utils/scaffold_helper.dart';
 import 'package:we_shop/features/home_products/data/data_sources/remote/remote_product_data_source.dart';
 import 'package:we_shop/features/home_products/data/data_sources/remote/remote_product_date_source_impl.dart';
 import 'package:we_shop/features/home_products/data/repos/products_repository_impl.dart';
@@ -10,11 +11,17 @@ import 'package:we_shop/features/home_products/domain/use_cases/get_recommended_
 import 'package:we_shop/features/home_products/domain/use_cases/get_single_products_list/get_main_products_use_case.dart';
 import 'package:we_shop/features/home_products/domain/use_cases/get_single_products_list/get_most_used_products_use_case.dart';
 import 'package:we_shop/features/home_products/presentation/blocs/most_use_products_bloc/most_use_products_bloc.dart';
+import 'package:we_shop/services/internet_checker.dart';
 
 final getIt = GetIt.instance;
 
 void setupDependencies() {
   getIt.registerSingleton<AppRouter>(AppRouter());
+  getIt.registerSingleton<ScaffoldHelper>(
+      ScaffoldHelper(getIt<AppRouter>().navigatorKey));
+  getIt.registerSingleton<InternetChecker>(
+      InternetChecker(getIt<ScaffoldHelper>()));
+
   getIt.registerSingleton<NetworkClient>(DioNetworkClient());
 
   //register data sources
