@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:we_shop/features/home_products/domain/entities/Product.dart';
 import 'package:we_shop/features/home_products/domain/use_cases/get_single_products_list/get_product_list_use_case.dart';

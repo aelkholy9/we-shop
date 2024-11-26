@@ -1,6 +1,8 @@
+import 'package:equatable/equatable.dart';
+
 import 'Category.dart';
 
-class Product {
+class Product extends Equatable {
   Product({
     this.id,
     this.title,
@@ -20,4 +22,7 @@ class Product {
   String? creationAt;
   String? updatedAt;
   Category? category;
+
+  @override
+  List<Object?> get props => [id];
 }
