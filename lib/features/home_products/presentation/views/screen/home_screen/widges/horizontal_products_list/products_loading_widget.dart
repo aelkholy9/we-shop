@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:we_shop/core/widgets/screen_padding_wrapper.dart';
 import 'package:we_shop/features/home_products/presentation/views/common/product_tile_skeleton.dart';
 
-class MainProductsLoadingWidget extends StatelessWidget {
-  const MainProductsLoadingWidget({super.key});
+class ProductsLoadingWidget extends StatelessWidget {
+  const ProductsLoadingWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

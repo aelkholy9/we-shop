@@ -4,13 +4,16 @@ import 'package:we_shop/core/failure/failure.dart';
 import 'package:we_shop/features/home_products/domain/entities/Product.dart';
 import 'package:we_shop/features/home_products/domain/repos/products_repository.dart';
 
-class GetMostUsedProductsUseCase {
-  final ProductsRepository productsRepository;
-  GetMostUsedProductsUseCase(this.productsRepository);
+import 'get_product_list_use_case.dart';
 
-  Future<Either<Failure, List<Product>>> execute([int? offset]) async {
+class GetMainProductsUseCase implements GetProductListUseCase {
+  final ProductsRepository productsRepository;
+  GetMainProductsUseCase(this.productsRepository);
+
+  @override
+  Future<Either<Failure, List<Product>>> execute() async {
     return executeAndHandleError<List<Product>>(
-      () => productsRepository.getMostUsedProducts(offset ?? 0),
+      () => productsRepository.getMainProducts(),
     );
   }
 }

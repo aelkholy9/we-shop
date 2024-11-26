@@ -14,7 +14,7 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   @override
   Future<List<Product>> getMainProducts() async {
     await Future.delayed(const Duration(seconds: 4));
-    return productsListMock.toList();
+    return productsListMock.take(5).toList();
 
     final products = await networkClient.get(
         '${ApiConstants.productsPrefix}?${Constants.limit}=${Constants.defaultPaginationLimit}&${Constants.offset}=3');
@@ -26,8 +26,7 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   @override
   Future<List<Product>> getMostUsedProducts(int offset) async {
     await Future.delayed(const Duration(seconds: 4));
-
-    return productsListMock.toList();
+    return productsListMock.take(5).toList();
     final products = await networkClient.get(
         '${ApiConstants.productsPrefix}?${Constants.limit}=${Constants.defaultPaginationLimit}&${Constants.offset}=$offset');
     return (products.data as List)
@@ -37,6 +36,8 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
 
   @override
   Future<List<Product>> getRecommendedProducts() async {
+    await Future.delayed(const Duration(seconds: 4));
+    return productsListMock.toList();
     final products = await networkClient.get(
         '${ApiConstants.productsPrefix}?${Constants.limit}=${Constants.defaultPaginationLimit}&${Constants.offset}=4');
     return (products.data as List)

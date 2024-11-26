@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:we_shop/features/home_products/domain/entities/Product.dart';
-import 'package:we_shop/features/home_products/domain/use_cases/get_most_used_products_use_case.dart';
+import 'package:we_shop/features/home_products/domain/use_cases/get_single_products_list/get_most_used_products_use_case.dart';
 
 part 'most_use_products_event.dart';
 part 'most_use_products_state.dart';
