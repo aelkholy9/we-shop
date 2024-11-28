@@ -3,7 +3,7 @@ import 'package:we_shop/core/network/dio_network_client.dart';
 import 'package:we_shop/core/network/network_client.dart';
 import 'package:we_shop/core/routing/app_router.dart';
 import 'package:we_shop/core/utils/scaffold_helper.dart';
-import 'package:we_shop/features/home_products/data/data_sources/remote/remote_product_data_source.dart';
+import 'package:we_shop/features/home_products/data/data_sources/remote/remote_product_data_source_impl.dart';
 import 'package:we_shop/features/home_products/data/data_sources/remote/remote_product_date_source_impl.dart';
 import 'package:we_shop/features/home_products/data/repos/products_repository_impl.dart';
 import 'package:we_shop/features/home_products/domain/repos/products_repository.dart';
