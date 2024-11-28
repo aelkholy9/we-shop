@@ -38,7 +38,7 @@ void main() {
       act: (bloc) => bloc.add(GetMostUseProductsEvent()),
       expect: () => [
         const MostUseProductsLoading(0, []),
-        MostUseProductsSuccess(0, productList),
+        MostUseProductsSuccess(0, productList, false),
       ],
       verify: (_) {
         verify(mockUseCase.execute()).called(1);
@@ -72,7 +72,7 @@ void main() {
       act: (bloc) => bloc.add(GetMoreMostUseProductsEvent()),
       expect: () => [
         const MoreMostUseProductsLoading(1, []),
-        MostUseProductsSuccess(1, productList),
+        MostUseProductsSuccess(1, productList, false),
       ],
       verify: (_) {
         verify(mockUseCase.execute(1)).called(1);
@@ -110,12 +110,12 @@ void main() {
       },
       expect: () => [
         const MostUseProductsLoading(0, []),
-        MostUseProductsSuccess(0, productList),
+        MostUseProductsSuccess(0, productList, false),
         MoreMostUseProductsLoading(1, productList),
-        MostUseProductsSuccess(1, [...productList, ...productList]),
+        MostUseProductsSuccess(1, [...productList, ...productList], false),
         MoreMostUseProductsLoading(2, [...productList, ...productList]),
         MostUseProductsSuccess(
-            2, [...productList, ...productList, ...productList]),
+            2, [...productList, ...productList, ...productList], false),
       ],
       verify: (_) {
         verify(mockUseCase.execute(any)).called(3);

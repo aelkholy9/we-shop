@@ -41,6 +41,7 @@ void main() {
       },
       act: (bloc) => bloc.add(GetProductsEvent()),
       expect: () => [
+        ProductsLoadingState(),
         ProductsSuccessState([
           Product(id: 1, title: 'Product 1'),
           Product(id: 2, title: 'Product 2'),
@@ -55,11 +56,12 @@ void main() {
       'should emit ProductsFailureState when GetProductsEvent is added and use case returns an error',
       build: () {
         when(mockGetProductListUseCase.execute())
-            .thenAnswer((_) async => Left(Failure('error')));
+            .thenAnswer((_) async => const Left(Failure('error')));
         return productsBloc;
       },
       act: (bloc) => bloc.add(GetProductsEvent()),
       expect: () => [
+        ProductsLoadingState(),
         ProductsFailureState('error'),
       ],
       verify: (_) {
