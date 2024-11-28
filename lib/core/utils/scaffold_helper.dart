@@ -15,8 +15,10 @@ class ScaffoldHelper {
           content: content,
           duration: duration ?? const Duration(seconds: 4),
           backgroundColor: background ?? AppColors.grey,
-          margin: const EdgeInsets.symmetric(
-              horizontal: DesignTokens.screenHorizontalPadding),
+          margin: EdgeInsets.symmetric(
+            horizontal: DesignTokens.screenHorizontalPadding,
+            vertical: MediaQuery.viewPaddingOf(key.currentContext!).bottom + 30,
+          ),
           behavior: SnackBarBehavior.floating,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
