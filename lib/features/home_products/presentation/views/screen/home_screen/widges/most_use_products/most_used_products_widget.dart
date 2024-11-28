@@ -82,7 +82,7 @@ class MostUsedProductsWidget extends StatelessWidget {
                                 .add(GetMoreMostUseProductsEvent());
                           },
                           child: Text(
-                            'Load more',
+                            AppLocale.loadMore.tr(),
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium

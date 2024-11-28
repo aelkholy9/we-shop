@@ -7,4 +7,5 @@ class AppLocale {
   static const recommendation = 'recommendation';
   static const noInternet = 'noInternet';
   static const connectionRestored = 'connectionRestored';
+  static const loadMore = 'loadMore';
 }

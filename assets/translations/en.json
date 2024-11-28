@@ -6,5 +6,6 @@
   "mostUseProducts": "Most use products",
   "recommendation": "Recommendation",
   "noInternet": "No Internet",
-  "connectionRestored": "Connection Restored"
+  "connectionRestored": "Connection Restored",
+  "loadMore": "Load more"
 }
