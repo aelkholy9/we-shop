@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:we_shop/core/constants/colors.dart';
 import 'package:we_shop/core/widgets/loading_skeletons/shimmer_wrapper.dart';
+import 'package:we_shop/services/service_locator.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
 class SafeNetworkImage extends StatelessWidget {
   final String url;
@@ -13,6 +15,7 @@ class SafeNetworkImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
+      cacheManager: _getCacheManager(),
       imageUrl: url,
       width: width,
       height: height,
@@ -34,5 +37,12 @@ class SafeNetworkImage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  BaseCacheManager? _getCacheManager() {
+    if (getIt.isRegistered<BaseCacheManager>()) {
+      return getIt<BaseCacheManager>();
+    }
+    return null;
   }
 }
