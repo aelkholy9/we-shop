@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget implements AutoRouteWrapper {
             child: BlocProvider(
               create: (context) => ProductsBloc(getIt<GetMainProductsUseCase>())
                 ..add(GetProductsEvent()),
-              child: MainProductsWidget(
+              child: ProductsWidget(
                 title: AppLocale.snackProducts.tr(),
               ),
             ),
@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget implements AutoRouteWrapper {
               create: (context) =>
                   ProductsBloc(getIt<GetRecommendedProductsUseCase>())
                     ..add(GetProductsEvent()),
-              child: MainProductsWidget(
+              child: ProductsWidget(
                 title: AppLocale.recommendation.tr(),
               ),
             ),

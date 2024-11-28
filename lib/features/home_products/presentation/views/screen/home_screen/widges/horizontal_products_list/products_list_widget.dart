@@ -9,9 +9,9 @@ import 'package:we_shop/features/home_products/presentation/views/common/product
 
 import 'products_loading_widget.dart';
 
-class MainProductsWidget extends StatelessWidget {
+class ProductsWidget extends StatelessWidget {
   final String title;
-  const MainProductsWidget({super.key, required this.title});
+  const ProductsWidget({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
