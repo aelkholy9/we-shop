@@ -12,6 +12,7 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
 
   @override
   Future<List<Product>> getMainProducts() async {
+    await Future.delayed(Duration(seconds: 2));
     final products = await networkClient.get(
         '${ApiConstants.productsPrefix}?${Constants.limit}=${Constants.defaultPaginationLimit}&${Constants.offset}=3');
     return (products.data as List)
@@ -21,6 +22,8 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
 
   @override
   Future<List<Product>> getMostUsedProducts(int offset) async {
+    await Future.delayed(Duration(seconds: 2));
+
     final products = await networkClient.get(
         '${ApiConstants.productsPrefix}?${Constants.limit}=${Constants.defaultPaginationLimit}&${Constants.offset}=$offset');
     return (products.data as List)
@@ -30,6 +33,8 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
 
   @override
   Future<List<Product>> getRecommendedProducts() async {
+    await Future.delayed(Duration(seconds: 2));
+
     final products = await networkClient.get(
         '${ApiConstants.productsPrefix}?${Constants.limit}=${Constants.defaultPaginationLimit}&${Constants.offset}=0');
     return (products.data as List)
