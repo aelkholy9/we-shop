@@ -7,7 +7,7 @@ class ProductModel extends Product {
     title = json['title'];
     price = json['price'];
     description = json['description'];
-    images = json['images'].cast<String>();
+    images = List<String>.from(json['images']?.whereType<String>() ?? []);
     creationAt = json['creationAt'];
     updatedAt = json['updatedAt'];
     category = json['category'] != null
