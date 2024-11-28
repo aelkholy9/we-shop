@@ -7,7 +7,7 @@ Future<Either<Failure, T>> executeAndHandleError<T>(
   try {
     return Right(await process());
   } on DioException catch (e) {
-    return Left(Failure(e.message ?? "error"));
+    return const Left(Failure("Network error"));
   } catch (e) {
     return Left(Failure(e.toString()));
   }
