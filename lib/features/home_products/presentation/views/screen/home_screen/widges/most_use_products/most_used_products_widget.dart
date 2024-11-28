@@ -63,37 +63,38 @@ class MostUsedProductsWidget extends StatelessWidget {
                         return ProductTile(product: state.products[index]);
                       },
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (state is MoreMostUseProductsLoading)
-                          const SizedBox(
-                            width: 15,
-                            height: 15,
-                            child: CircularProgressIndicator(
-                              color: AppColors.green,
-                              strokeWidth: 2,
+                    if ((state.hasMorePages ?? false))
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if (state is MoreMostUseProductsLoading)
+                            const SizedBox(
+                              width: 15,
+                              height: 15,
+                              child: CircularProgressIndicator(
+                                color: AppColors.green,
+                                strokeWidth: 2,
+                              ),
+                            ),
+                          TextButton(
+                            onPressed: () {
+                              context
+                                  .read<MostUseProductsBloc>()
+                                  .add(GetMoreMostUseProductsEvent());
+                            },
+                            child: Text(
+                              AppLocale.loadMore.tr(),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(
+                                    color: AppColors.green,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                             ),
                           ),
-                        TextButton(
-                          onPressed: () {
-                            context
-                                .read<MostUseProductsBloc>()
-                                .add(GetMoreMostUseProductsEvent());
-                          },
-                          child: Text(
-                            AppLocale.loadMore.tr(),
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium
-                                ?.copyWith(
-                                  color: AppColors.green,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                          ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
                   ],
                 );
               },

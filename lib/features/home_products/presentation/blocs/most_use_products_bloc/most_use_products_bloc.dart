@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
+import 'package:we_shop/core/constants/constants.dart';
 import 'package:we_shop/features/home_products/domain/entities/Product.dart';
 import 'package:we_shop/features/home_products/domain/use_cases/get_single_products_list/get_most_used_products_use_case.dart';
 
@@ -29,7 +30,8 @@ class MostUseProductsBloc
     final productsResult = await getMostUsedProductsUseCase.execute();
     productsResult.fold(
       (l) => emit(MostUseProductsFailure(l.title, 0, state.products)),
-      (r) => emit(MostUseProductsSuccess(0, r)),
+      (r) => emit(MostUseProductsSuccess(
+          0, r, r.length >= Constants.defaultPaginationLimit)),
     );
   }
 
@@ -47,6 +49,7 @@ class MostUseProductsBloc
             ...state.products,
             ...r,
           ],
+          r.length >= Constants.defaultPaginationLimit,
         ),
       ),
     );

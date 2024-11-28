@@ -4,8 +4,9 @@ part of 'most_use_products_bloc.dart';
 abstract class MostUseProductsState extends Equatable {
   final int currentPage;
   final List<Product> products;
-
-  const MostUseProductsState(this.currentPage, this.products);
+  final bool? hasMorePages;
+  const MostUseProductsState(this.currentPage, this.products,
+      [this.hasMorePages = true]);
 }
 
 class MostUseProductsInitial extends MostUseProductsState {
@@ -23,10 +24,11 @@ class MostUseProductsLoading extends MostUseProductsState {
 }
 
 class MostUseProductsSuccess extends MostUseProductsState {
-  const MostUseProductsSuccess(super.currentPage, super.products);
+  const MostUseProductsSuccess(
+      super.currentPage, super.products, super.hasMorePages);
 
   @override
-  List<Object?> get props => [currentPage, products];
+  List<Object?> get props => [currentPage, products, hasMorePages];
 }
 
 class MostUseProductsFailure extends MostUseProductsState {
@@ -39,8 +41,11 @@ class MostUseProductsFailure extends MostUseProductsState {
 }
 
 class MoreMostUseProductsLoading extends MostUseProductsState {
-  const MoreMostUseProductsLoading(super.currentPage, super.products);
+  const MoreMostUseProductsLoading(
+    super.currentPage,
+    super.products,
+  );
 
   @override
-  List<Object?> get props => [currentPage, products];
+  List<Object?> get props => [currentPage, products, hasMorePages];
 }
