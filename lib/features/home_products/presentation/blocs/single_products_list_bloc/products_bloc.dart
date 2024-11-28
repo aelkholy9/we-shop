@@ -19,6 +19,7 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
   }
 
   Future<void> _getMainProducts(Emitter<ProductsState> emit) async {
+    emit(ProductsLoadingState());
     final productsResult = await getMainProductsUseCase.execute();
     productsResult.fold(
       (l) => emit(ProductsFailureState(l.title)),
